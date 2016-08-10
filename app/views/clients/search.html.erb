@@ -1,16 +1,17 @@
 
 
-<h1>Do Not Call List Check</h1>
+<div class="center search">
+  <h1>Do Not Call List Check</h1>
+  <%= form_tag(search_clients_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :q, params[:q], placeholder: "Enter Web Address w/o www." %>
+  <%= submit_tag "Search" %>
+  <% end %>
 
-<%= form_tag(search_clients_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :q, params[:q], placeholder: "Enter Web Address w/o www." %>
-<%= submit_tag "Search" %>
-<% end %>
-
-<% if @response.blank? %>
-<h2></h2>
-<% elsif @response == 8 %>
-<h2>Go ahead and give them a ring</h2>
-<% else %>
-<h2><%= @results.address %> is on the Do Not Call List</h2>
-<% end %>
+  <% if @response.blank? %>
+  <h2></h2>
+  <% elsif @response == 8 %>
+  <h2>Go ahead and give them a ring</h2>
+  <% else %>
+  <h2><%= @results.address %> is on the Do Not Call List</h2>
+  <% end %>
+</div>
