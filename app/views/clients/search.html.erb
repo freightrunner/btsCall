@@ -6,7 +6,7 @@
   <div class="container">
     <%= form_tag(search_clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
     <div class="form-group">
-      <%= text_field_tag :q, params[:q], placeholder: "Web Address w/o www.", class: "form-control", autofocus: true %>
+      <%= text_field_tag :q, params[:q], placeholder: "Type in the website address without the www.", class: "form-control", autofocus: true %>
     </div>
     <%= submit_tag "Search", class: 'btn btn-primary btn-lg' %>
     <% end %>
