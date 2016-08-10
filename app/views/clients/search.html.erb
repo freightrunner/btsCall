@@ -2,11 +2,15 @@
 
 <div class="center search">
   <p id="notice"><%= notice %></p>
-  <h1>Do Not Call List Check</h1>
-  <%= form_tag(search_clients_path, :method => "get", id: "search-form") do %>
-  <%= text_field_tag :q, params[:q], placeholder: "Enter Web Address w/o www." %>
-  <%= submit_tag "Search" %>
-  <% end %>
+  <h1>Check the Do Not Call List</h1>
+  <div class="container">
+    <%= form_tag(search_clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
+    <div class="form-group">
+      <%= text_field_tag :q, params[:q], placeholder: "Web Address w/o www.", class: "form-control", autofocus: true %>
+    </div>
+    <%= submit_tag "Search", class: 'btn btn-primary btn-lg' %>
+    <% end %>
+  </div>
 
   <% if @response.blank? %>
   <h2></h2>
