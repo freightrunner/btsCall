@@ -11,7 +11,7 @@ class ClientsController < ApplicationController
   # GET /clients/1.json
   def show
   end
-  
+
   def search
     @clients = Client.all
     if params[:q]
@@ -71,6 +71,11 @@ class ClientsController < ApplicationController
       format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def import
+    Client.import(params[:file])
+    redirect_to clients_path, notice: "Clients imported"
   end
 
   private

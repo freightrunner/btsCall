@@ -5,3 +5,10 @@
 
   <%= link_to 'Back', clients_path %>
 </div>
+
+  <h2>Import Clients/Leads</h2>
+
+  <%= form_tag import_clients_path, multipart: true do %>
+    <%= file_field_tag :file %>
+    <%= submit_tag "Import" %>
+  <% end %>
