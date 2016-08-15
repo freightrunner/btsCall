@@ -23,7 +23,7 @@ class ClientImport
     else
       imported_clients.each_with_index do |client, index|
         client.errors.full_messages.each do |message|
-          errors.add :base, "Row #{index+2}: #{message}"
+          errors.add :base, "Company: #{client.name} on Row #{index+2}: #{message}"
         end
       end
       false
@@ -39,7 +39,7 @@ class ClientImport
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).map do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      client = Client.find_by_address(row["address"]) || Client.new
+      client = Client.find_by_id(row["id"]) || Client.new
       client.attributes = row.to_hash #.slice(Client.client_import_params)
       client
     end

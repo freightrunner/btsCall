@@ -78,10 +78,6 @@ class ClientsController < ApplicationController
     redirect_to clients_path, notice: "Clients imported"
   end
 
-  def client_import_params
-      params.require(:client).permit(:name, :address)
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_client
