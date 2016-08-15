@@ -1,8 +1,9 @@
 class Client < ActiveRecord::Base
   #attr_accessible :name, :address
 
-  validates :address, presence: true,
-                      uniqueness: true
+  validates :address, uniqueness: { case_sensitive: false},
+                      presence: true
+
 
   def self.search(q)
     where("name LIKE ?", "%#{q}%")
