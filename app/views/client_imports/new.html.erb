@@ -27,8 +27,8 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.file_field :file %>
+  <div class="actions">
+    <%= f.file_field :file, class: 'btn btn-default' %>
   </div>
-  <div class="buttons"><%= f.submit "Import" %></div>
+  <div class="buttons"><%= f.submit "Import", class: 'btn btn-primary' %></div>
 <% end %>

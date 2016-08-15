@@ -1,13 +1,15 @@
 <div class="center">
-  <h1>New Client</h1>
+  <div class="container">
+    <h1>New Client</h1>
+  </div>
 
   <%= render 'form' %>
+  <div class="container">
+    <h2>Import Clients/Leads</h2>
 
-  <%= link_to 'Back', clients_path %>
+    <p><%= link_to("Import Clients", new_client_import_path, class: 'btn btn-primary btn-lg') %></p>
+    <%= link_to('Back', clients_path, class: 'btn btn-warning') %>
+  </div>
 </div>
 
-  <h2>Import Clients/Leads</h2>
 
- 
-
-<p><%= link_to "Import Clients", new_client_import_path %></p>
