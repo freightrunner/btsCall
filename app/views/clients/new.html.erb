@@ -8,9 +8,6 @@
 
   <h2>Import Clients/Leads</h2>
 
-  <%= form_tag import_clients_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import" %>
-  <% end %>
+ 
 
 <p><%= link_to "Import Clients", new_client_import_path %></p>
