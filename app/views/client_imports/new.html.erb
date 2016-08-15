@@ -4,7 +4,7 @@
 
 <ul>
   <% Client.columns.each do |column| %>
-    <% if column.name.in? ["address"] %>
+    <% if column.name.in? ["name", "address"] %>
       <li>
         <strong><%= column.name %></strong> -
         <%= column.type.to_s.titleize %> type
