@@ -1,8 +1,12 @@
 class Client < ActiveRecord::Base
   #attr_accessible :name, :address
-
+  STATUSES = ['dnc', 'lead', 'open']
   validates :address, uniqueness: { case_sensitive: false},
                       presence: true
+  validates :status, inclusion: { :in => STATUSES,
+                              message: "%{value} is not a valid type, please select either dnc or lead"}
+
+
 
 
   def self.search(q)
