@@ -44,3 +44,23 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
+
+.client-actions {
+  border-top: 1px solid #eaeaea;
+  padding-top: 5px;
+}
+
+.client-name {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.client-address {
+  border-top: 2px solid #eaeaea;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.client-status {
+  border-top: 2px solid #eaeaea;
+}

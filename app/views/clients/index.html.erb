@@ -1,4 +1,31 @@
- <div class="center">
+<h2 align="center">Listed Companies</h2>
+<div class="container-fluid">
+  <% @clients.each do |t| %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg">
+          <div class="client-name">
+            <%= link_to(t.name, client_path(t)) %>
+          </div>
+          <div class="client-address">
+            <%= t.address %>
+          </div>
+          <div class="client-status">
+            <%= t.status %>
+          </div>
+          <div class="client-actions">
+            <%= link_to("Edit", edit_client_path(t), class: "btn btn-xs btn-primary") %>
+            <%= link_to("Delete", client_path(t), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
+          </div>
+        </div>
+      </div>
+  </div>
+  <% end %>
+</div>
+
+
+
+<div class="center">
   <p id="notice"><%= notice %></p>
 
   <h1>Listing Clients</h1>
