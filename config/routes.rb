@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  # devise_for :admins
   resources :clients do
     collection do
       get 'search'
