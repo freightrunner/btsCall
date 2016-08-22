@@ -63,4 +63,12 @@ footer ul li {
 
 .client-status {
   border-top: 2px solid #eaeaea;
+  float: right;
+  font-weight: bold;
+}
+
+.example-excel {
+  background-image: asset-url('exampleexcel1.png');
+  width: 580px;
+  height: 336px;
 }

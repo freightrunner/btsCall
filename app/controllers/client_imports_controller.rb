@@ -1,5 +1,5 @@
 class ClientImportsController < ApplicationController
-  before_action :autheticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: [:new, :create]
 
   def new
     @client_import = ClientImport.new
