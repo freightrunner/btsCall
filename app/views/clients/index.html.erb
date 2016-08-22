@@ -14,8 +14,10 @@
             <%= t.status %>
           </div>
           <div class="client-actions">
-            <%= link_to("Edit", edit_client_path(t), class: "btn btn-xs btn-primary") %>
-            <%= link_to("Delete", client_path(t), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
+            <% if current_user.try(:admin?) %>
+              <%= link_to("Edit", edit_client_path(t), class: "btn btn-xs btn-primary") %>
+              <%= link_to("Delete", client_path(t), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
+            <% end %>
           </div>
         </div>
       </div>
