@@ -8,7 +8,7 @@
             <%= link_to(t.name, client_path(t)) %>
             <% if t.user_id? %>
               <div class="client-user">
-                <%= User.find(t.id).username %>
+                <%= User.find(t.user_id).username %>
               </div>
             <% else %>
             <% end %>
