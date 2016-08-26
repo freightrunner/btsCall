@@ -1,6 +1,15 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>User:</strong>
+  <% if @client.user_id? %>
+    <%= @clientOwner.username %>
+  <% else %>
+    <strong>No user associated</strong>
+  <% end %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @client.name %>
 </p>

@@ -6,6 +6,12 @@
         <div class="well well-lg">
           <div class="client-name">
             <%= link_to(t.name, client_path(t)) %>
+            <% if t.user_id? %>
+              <div class="client-user">
+                <%= User.find(t.id).username %>
+              </div>
+            <% else %>
+            <% end %>
           </div>
           <div class="client-address">
             <%= t.address %>

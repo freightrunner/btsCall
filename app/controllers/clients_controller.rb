@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:index, :search, :new, :create]
+  # before_action :current_username, only: [:new]
   # GET /clients
   # GET /clients.json
   def index
@@ -10,6 +11,11 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    if @client.user_id?
+      @clientOwner = User.find(@client.id)
+      else
+      @clientOwner = "No user associated"
+    end
   end
 
   def search
@@ -27,16 +33,23 @@ class ClientsController < ApplicationController
   # GET /clients/new
   def new
     @client = Client.new
+    @clientOwner = current_user
   end
 
   # GET /clients/1/edit
   def edit
+    if @client.user_id?
+      @clientOwner = @client.user
+      else
+      @clientOwner = current_user
+    end
   end
 
   # POST /clients
   # POST /clients.json
   def create
     @client = Client.new(client_params)
+    @client.user_id = @clientOwner.id
 
     respond_to do |format|
       if @client.save
@@ -79,6 +92,11 @@ class ClientsController < ApplicationController
   end
 
   private
+
+    #def current_username
+     # @currentUsername = current_user.username
+    #end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_client
       @client = Client.find(params[:id])
@@ -86,6 +104,6 @@ class ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.require(:client).permit(:name, :address, :status)
+      params.require(:client).permit(:name, :address, :status, :user_id)
     end
 end
