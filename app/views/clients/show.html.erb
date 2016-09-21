@@ -15,8 +15,23 @@
 </p>
 
 <p>
+  <strong>Accoutn Status:</strong>
+  <%= @client.status %>
+</p>
+
+<p>
   <strong>Address:</strong>
   <%= @client.address %>
+</p>
+
+<p>
+  <strong>Uploaded:</strong>
+  <%= @client.created_at %>
+</p>
+
+<p>
+  <strong>Last Updated:</strong>
+  <%= @client.updated_at %>
 </p>
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
