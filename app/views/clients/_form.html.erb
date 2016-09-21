@@ -13,8 +13,13 @@
   <% end %>
 
   <div class="form-group">
-    <p>Username: <%= @clientOwner.username %></p>
-    <%= f.hidden_field :user_id, :value => @clientOwner.id %>
+    <% if current_user.try(:admin?) %>
+      <%= f.collection_select :user_id, User.order(:username), :id, :username %>
+      <%= f.hidden_field :user_id, :value => @clientOwner.id %>
+    <% else %>
+      <p>Username: <%= @clientOwner.username %></p>
+      <%= f.hidden_field :user_id, :value => @clientOwner.id %>
+    <% end %>
   </div>
 
   <div class="form-group">
