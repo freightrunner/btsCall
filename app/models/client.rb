@@ -1,6 +1,6 @@
 class Client < ActiveRecord::Base
   #attr_accessible :name, :address
-  belongs_to :client
+  belongs_to :user
   STATUSES = ['dnc', 'lead', 'open']
   validates :address, uniqueness: { case_sensitive: false},
                       presence: true
