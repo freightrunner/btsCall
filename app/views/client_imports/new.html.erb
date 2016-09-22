@@ -1,6 +1,6 @@
 <h1>Client Import</h1>
 
-<p>A CSV or Excel file can be used to import records. The first row should be the column names ("type", "name", and "address"). Type should be "lead" if you are getting ready to call these companies.  Name is just the name of the company and adress is the website address for this company without the "www." or "http://"  For example "www.google.com" should be represented as "google.com"</p>
+<p>A CSV or Excel file <strong>(.csv or .xlxs)</strong> can be used to import records. The first row should be the column headers ("user_id", "status, "name", and "address").  Enter your own unique user_id for each record. Status should be "lead" if you are getting ready to call these companies.  Name is just the name of the company and adress is the website address for this company without the "www." or "http://"  <strong>For example "www.google.com" should be represented as "google.com"</strong></p>
 
 <div class="example-excel">
   <p>Example screenshot</p>
@@ -8,20 +8,25 @@
 
 <p>If an <strong>id</strong> is supplied it will update the matching record instead of creating a new one.</p>
 
-<%= form_for @client_import do |f| %>
-  <% if @client_import.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@client_import.errors.count, "error") %> prohibited this import from completing:</h2>
-      <ul>
-      <% @client_import.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.file_field :file, class: 'btn btn-default' %>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Mass Import</h3>
   </div>
-  <div class="buttons"><%= f.submit "Import", class: 'btn btn-primary' %></div>
-<% end %>
+  <%= form_for @client_import do |f| %>
+    <% if @client_import.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@client_import.errors.count, "error") %> prohibited this import from completing:</h2>
+        <ul>
+        <% @client_import.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="actions">
+      <%= f.file_field :file, class: 'btn btn-default' %>
+    </div>
+    <div class="buttons"><%= f.submit "Import", class: 'btn btn-success' %></div>
+  <% end %>
+</div>
