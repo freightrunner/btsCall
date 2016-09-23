@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160826162638) do
+ActiveRecord::Schema.define(version: 20160923171901) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160826162638) do
 
   add_index "clients", ["address"], name: "index_clients_on_address", unique: true
   add_index "clients", ["name", "address"], name: "index_clients_on_name_and_address", unique: true
+  add_index "clients", ["name"], name: "index_clients_on_name"
   add_index "clients", ["user_id"], name: "index_clients_on_user_id"
 
   create_table "users", force: :cascade do |t|
