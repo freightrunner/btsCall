@@ -1,7 +1,7 @@
 class Client < ActiveRecord::Base
   #attr_accessible :name, :address
   belongs_to :user
-  STATUSES = ['dnc', 'lead', 'open']
+  STATUSES = ['dnc', 'lead', 'open', 'client']
   validates :address, uniqueness: { case_sensitive: false},
                       presence: true
   validates :status, inclusion: { :in => STATUSES,
