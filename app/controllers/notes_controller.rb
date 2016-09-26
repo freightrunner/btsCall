@@ -5,6 +5,7 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @notes = Note.all
+    @clientNotes = Note.where( client_id: params[:client_id]).all
   end
 
   # GET /notes/1
@@ -15,6 +16,8 @@ class NotesController < ApplicationController
   # GET /notes/new
   def new
     @note = Note.new
+    @client = Client.find(params[:client_id])
+    @currentUser = User.find(current_user.id)
   end
 
   # GET /notes/1/edit

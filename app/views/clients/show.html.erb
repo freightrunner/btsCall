@@ -34,5 +34,14 @@
   <%= @client.updated_at %>
 </p>
 
+<p>
+  <strong>Add Note</strong>
+  <li class='btn btn-success btn-lg'><%= link_to("Add Note", new_note_path(:client_id => @client.id)) %></li>
+</p>
+
+<% if @client.notes.any? %>
+  <li class='btn btn-success btn-lg'><%= link_to("See Notes", notes_path(:client_id => @client.id)) %></li>
+<% end %>
+
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>

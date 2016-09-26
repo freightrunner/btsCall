@@ -1,3 +1,38 @@
+<% if params[:client_id] %>
+<h2 align="center">Notes for <%= Client.where(id: params[:client_id]).first.name %> </h2>
+<div class="container-fluid">
+  <% @clientNotes.each do |t| %>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+        <div class="well well-lg">
+          <div class="client-name">
+            <%= link_to(t.comment, note_path(t)) %>
+            <% if t.user_id? %>
+              <div class="client-user">
+                <%= User.find(t.user_id).username %>
+              </div>
+            <% else %>
+            <% end %>
+          </div>
+          <div class="client-address">
+            <%= t.created_at %>
+          </div>
+          <div class="client-status">
+            <%= t.updated_at %>
+          </div>
+          <div class="client-actions">
+            <% if current_user.try(:admin?) %>
+              <%= link_to("Edit", edit_note_path(t), class: "btn btn-xs btn-primary") %>
+              <%= link_to("Delete", note_path(t), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+  </div>
+  <% end %>
+</div>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Notes</h1>
