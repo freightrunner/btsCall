@@ -27,10 +27,12 @@
               <strong>Last Updated:</strong>
               <%= @client.updated_at %>
             </div>
-            <div class="client-address">
-              <strong>Last call:</strong>
-               <%= @client.notes.last.created_at %>
-            </div>
+            <% if @client.note.any? %>
+              <div class="client-address">
+                <strong>Last call:</strong>
+                 <%= @client.notes.last.created_at %>
+              </div>
+            <% end %>
           </div>
           <div class="panel-footer">
           <div class="client-status">
