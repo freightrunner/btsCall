@@ -5,7 +5,7 @@ class NotesController < ApplicationController
   # GET /notes.json
   def index
     @notes = Note.all
-    @clientNotes = Note.where( client_id: params[:client_id]).all
+    @clientNotes = Note.where( client_id: params[:client_id]).all.order(id: :asc)
   end
 
   # GET /notes/1

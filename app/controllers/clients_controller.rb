@@ -11,6 +11,7 @@ class ClientsController < ApplicationController
   # GET /clients/1
   # GET /clients/1.json
   def show
+    @notes = @client.notes.all
     #if @client.user_id?
       #@clientOwner = User.find(@client.id)
       #else
