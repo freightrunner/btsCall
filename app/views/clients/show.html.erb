@@ -27,7 +27,7 @@
               <strong>Last Updated:</strong>
               <%= @client.updated_at %>
             </div>
-            <% if @client.note.any? %>
+            <% if @client.notes.any? %>
               <div class="client-address">
                 <strong>Last call:</strong>
                  <%= @client.notes.last.created_at %>
