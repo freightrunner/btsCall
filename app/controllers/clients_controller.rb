@@ -8,6 +8,11 @@ class ClientsController < ApplicationController
     @clients = Client.all
     if params[:q]
       @clients = Client.where("name ILIKE ?", "%#{params[:q]}%").all
+    elsif params[:user_id]
+      @clients = Client.where(user_id: current_user.id).all
+      @clients = @clients.where(status: 'open').all
+    elsif params[:w]
+      @clients = Client.where("address ILIKE ?", "%#{params[:w]}%").all
     end
   end
 

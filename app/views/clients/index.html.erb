@@ -1,3 +1,17 @@
+<div class="center search">
+  <p id="notice"><%= notice %></p>
+  <button type="button" class='btn btn-standard btn-lg'><%= link_to("My Leads", clients_path(user_id: current_user.id))  %></button>
+  <h1>Check the Do Not Call List</h1>
+  <div class="container-fluid">
+    <h4>Type in the website address without the www.</h4>
+    <%= form_tag(clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
+    <div class="form-group">
+      <%= text_field_tag :w, params[:w], placeholder: "Type in the website address without the www.", class: "form-control", autofocus: true %>
+    </div>
+    <%= submit_tag "Search", class: 'btn btn-primary btn-lg' %>
+    <% end %>
+  </div>
+</div>
 <h2 align="center">Listed Companies</h2>
 <div class="container-fluid">
   <% @clients.each do |t| %>
