@@ -12,7 +12,7 @@ class ClientsController < ApplicationController
       @clients = Client.where(user_id: current_user.id).all
       @clients = @clients.where(status: 'open').all
     elsif params[:w]
-      @clients = Client.search(params[:w]).all
+      @clients = Client.where("address ILIKE ?", "%#{params[:w]}%").all
     end
   end
 
