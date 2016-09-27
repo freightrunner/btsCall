@@ -6,6 +6,9 @@ class ClientsController < ApplicationController
   # GET /clients.json
   def index
     @clients = Client.all
+    if params[:q]
+      @clients = Client.search(params[:q]).all
+    end
   end
 
   def myClients
