@@ -11,9 +11,9 @@ class Client < ActiveRecord::Base
 
 
 
-  def self.search(q)
-    where("name LIKE ?", "%#{q}%")
-    where("address LIKE ?", "%#{q}%")
+  def self.search(w)
+    where("name ILIKE ?", "%#{w}%")
+    where("address ILIKE ?", "%#{w}%")
   end
 
   def self.import(file)
