@@ -7,7 +7,7 @@ class ClientsController < ApplicationController
   def index
     @clients = Client.all
     if params[:q]
-      @clients = Client.where("name like ?", "%#{params[:q]}%").all
+      @clients = Client.where("name like ?", "%#{params[:q]}%").all || Client.where("name ILIKE ?", "%#{params[:q]}%").all
     end
   end
 

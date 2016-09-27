@@ -40,7 +40,7 @@
       <form class="navbar-form navbar-left">
         <%= form_tag(clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
           <div class="form-group">
-            <%= text_field_tag :q, params[:q], placeholder: "Type in the website address without the www.", class: "form-control" %>
+            <%= text_field_tag :q, params[:q], placeholder: "Company Name", class: "form-control" %>
           </div>
           <%= submit_tag "Search", class: 'btn btn-primary btn-lg' %>
         <% end %>
