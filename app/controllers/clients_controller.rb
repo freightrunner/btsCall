@@ -8,6 +8,11 @@ class ClientsController < ApplicationController
     @clients = Client.all
   end
 
+  def myClients
+    @myClients = Client.where(user_id: current_user.id).all
+    @myClients = @myClients.where(status: 'open').all
+  end
+
   # GET /clients/1
   # GET /clients/1.json
   def show

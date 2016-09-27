@@ -42,7 +42,7 @@
     <h2>Go ahead and give them a ring</h2>
     <% else %>
     <h1>Search Results:</h1>
-    <h2><%= @results.name %> is marked as <%= @results.status %></h2>
+    <h2><%= link_to("#{@results.name}", client_path(@results)) %> is marked as <%= @results.status %></h2>
     <% end %>
   </div>
 </div>
