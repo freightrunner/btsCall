@@ -3,6 +3,7 @@ class Client < ActiveRecord::Base
   belongs_to :user
   has_many :notes
   STATUSES = ['dnc', 'lead', 'open', 'client']
+  TOPICS = ['Agriculture/Environment', 'Architecture', 'Arts & Culture', 'Business', 'Culinary', 'Education', 'Health/Medical', 'Outdoor', 'Travel']
   validates :address, uniqueness: { case_sensitive: false},
                       presence: true
   validates :status, inclusion: { :in => STATUSES,

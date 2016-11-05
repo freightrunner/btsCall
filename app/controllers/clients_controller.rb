@@ -13,6 +13,8 @@ class ClientsController < ApplicationController
       @clients = @clients.where(status: 'lead').all
     elsif params[:w]
       @clients = Client.where("address ILIKE ?", "%#{params[:w]}%").all
+    elsif params[:category]
+      @clients = Client.where("category LIKE ?", "%#{params[:category]}%").all
     end
   end
 
