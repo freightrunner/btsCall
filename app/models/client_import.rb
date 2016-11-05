@@ -39,7 +39,7 @@ class ClientImport
     header = spreadsheet.row(1)
     (2..spreadsheet.last_row).map do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
-      client = Client.find_by_id(row["id"]) || Client.new
+      client = Client.find_by_address(row["address"]) || Client.new
       client.attributes = row.to_hash #.slice(Client.client_import_params)
       client
     end
