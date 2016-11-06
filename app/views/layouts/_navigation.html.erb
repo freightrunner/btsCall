@@ -37,14 +37,9 @@
           </ul>
         </li>
       </ul>
-      <form class="navbar-form navbar-left">
-        <%= form_tag(clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
-          <div class="form-group">
-            <%= text_field_tag :q, params[:q], placeholder: "Company Name", class: "form-control" %>
-          </div>
-          <%= submit_tag "Search", class: 'btn btn-primary btn-lg' %>
-        <% end %>
-      </form>
+
+
+
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li><a href="#">User ID: <%= current_user.id %></a></li>
