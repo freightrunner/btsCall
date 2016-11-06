@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="panel panel-primary">
+      <div class="panel-heading">View Companies by Topic</div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-4">
+            <button type="button" class='btn btn-default'><%= link_to("Agriculture/Environment", clients_path(category: "Agriculture/Environment"))  %></button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class='btn btn-default'><%= link_to("Architecture", clients_path(category: "Architecture"))  %></button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class='btn btn-default'><%= link_to("Arts & Culture", clients_path(category: "Arts & Culture"))  %></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <button type="button" class='btn btn-default'><%= link_to("Business", clients_path(category: "Business"))  %></button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class='btn btn-default'><%= link_to("Culinary", clients_path(category: "Culinary"))  %></button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class='btn btn-default'><%= link_to("Education", clients_path(category: "Education"))  %></button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <button type="button" class='btn btn-default'><%= link_to("Health/Medical", clients_path(category: "Health/Medical"))  %></button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class='btn btn-default'><%= link_to("Outdoor", clients_path(category: "Outdoor"))  %></button>
+          </div>
+          <div class="col-md-4">
+            <button type="button" class='btn btn-default'><%= link_to("Travel", clients_path(category: "Travel"))  %></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

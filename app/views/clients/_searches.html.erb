@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Search by Company Website</div>
+        <div class="panel-body"> Type web address without the www.
+          <div class="form-inline">
+            <%= form_tag(clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
+            <div class="form-group">
+              <%= text_field_tag :w, params[:w], placeholder: "Company Website", class: "form-control" %>
+            </div>
+            <%= submit_tag "Search", class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Search by Company Name</div>
+        <div class="panel-body"> Type part of the company name
+          <div class="form-inline">
+            <%= form_tag(clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
+            <div class="form-group">
+              <%= text_field_tag :q, params[:q], placeholder: "Company Name", class: "form-control" %>
+            </div>
+            <%= submit_tag "Search", class: 'btn btn-primary' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
