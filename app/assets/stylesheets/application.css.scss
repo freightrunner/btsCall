@@ -45,13 +45,12 @@ footer ul li {
   margin-left: 15px;
 }
 
-.client-user {
-  float: right;
+.content-holder {
+  overflow: hidden;
 }
 
-.client-actions {
-  border-top: 1px solid #eaeaea;
-  padding-top: 5px;
+.client-user {
+  float: right;
 }
 
 .client-name {
@@ -60,13 +59,20 @@ footer ul li {
 }
 
 .client-address {
-  border-top: 2px solid #eaeaea;
+  border-top: 2px solid #848484;
   padding-top: 15px;
   padding-bottom: 15px;
+  border-bottom: 2px solid #eaeaea;
+  font-weight: bold;
+}
+
+.client-actions {
+  padding-top: 10px;
+  float: left;
 }
 
 .client-status {
-  border-top: 2px solid #eaeaea;
+  padding-top: 10px;
   float: right;
   font-weight: bold;
 }

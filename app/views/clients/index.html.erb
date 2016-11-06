@@ -12,7 +12,7 @@ Inactive button for "My Leads" -->
   <% @clients.each do |t| %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <div class="well">
+        <div class="well content-holder">
           <div class="client-name">
             <%= link_to(t.name, client_path(t)) %>
             <% if t.user_id? %>
