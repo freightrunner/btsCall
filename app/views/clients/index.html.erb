@@ -7,22 +7,12 @@ Inactive button for "My Leads" -->
 
   <%= render 'searches' %>
 
-  <div class="container-fluid">
-    <h4>Type in the website address without the www.</h4>
-    <%= form_tag(clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
-    <div class="form-group">
-      <%= text_field_tag :w, params[:w], placeholder: "Type in the website address without the www.", class: "form-control", autofocus: true %>
-    </div>
-    <%= submit_tag "Search", class: 'btn btn-primary btn-lg' %>
-    <% end %>
-  </div>
-</div>
 <h2 align="center">Listed Companies</h2>
 <div class="container-fluid">
   <% @clients.each do |t| %>
     <div class="row">
       <div class="col-xs-8 col-xs-offset-2">
-        <div class="well well-lg">
+        <div class="well">
           <div class="client-name">
             <%= link_to(t.name, client_path(t)) %>
             <% if t.user_id? %>
