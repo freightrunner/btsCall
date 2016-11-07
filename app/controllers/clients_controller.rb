@@ -7,14 +7,14 @@ class ClientsController < ApplicationController
   def index
     @clients = Client.all
     if params[:q]
-      @clients = Client.where("name ILIKE ?", "%#{params[:q]}%").all
+      @clients = Client.where("name ILIKE ?", "%#{params[:q]}%").all.order('name ASC')
     elsif params[:user_id]
       @clients = Client.where(user_id: current_user.id).all
-      @clients = @clients.where(status: 'lead').all
+      @clients = @clients.where(status: 'lead').all.order('name ASC')
     elsif params[:w]
-      @clients = Client.where("address ILIKE ?", "%#{params[:w]}%").all
+      @clients = Client.where("address ILIKE ?", "%#{params[:w]}%").all.order('name ASC')
     elsif params[:category]
-      @clients = Client.where("category LIKE ?", "%#{params[:category]}%").all
+      @clients = Client.where("category LIKE ?", "%#{params[:category]}%").all.order('name ASC')
     end
   end
 
