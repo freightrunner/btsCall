@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all
+    @clients = Client.all.order('LOWER(name)')
     if params[:q]
       @clients = Client.where("name ILIKE ?", "%#{params[:q]}%").all.order('LOWER(name)')
     elsif params[:user_id]
