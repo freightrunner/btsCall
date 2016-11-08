@@ -5,9 +5,11 @@
     </small>
     <nav>
       <ul>
-        <li><%= link_to("Search", root_path) %></li>
-        <li><%= link_to("All Companies", clients_path) %></li>
-        <li><%= link_to("Add New Company", new_client_path) %></li>
+        <% if current_user.try(:admin?) %>
+          <li><%= link_to("Search", root_path) %></li>
+          <li><%= link_to("All Companies", clients_path) %></li>
+          <li><%= link_to("Add New Company", new_client_path) %></li>
+        <% end %>
       </ul>
     </nav>
   </footer>

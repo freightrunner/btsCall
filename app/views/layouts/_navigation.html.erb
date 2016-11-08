@@ -50,9 +50,9 @@
           <ul class="dropdown-menu">
             <% if current_user.try(:admin?) %>
             <li><a href="#">You're an admin</a></li>
+            <li><%= link_to "My Leads", myClients_clients_path %></li>
             <% end %>
             <% if user_signed_in? %>
-              <li><%= link_to "My Leads", myClients_clients_path %></li>
               <li><%= link_to("Change your password", edit_user_registration_path) %></li>
               <li><%= link_to "Logout", destroy_user_session_path, :method => :delete %></li>
             <% else %>
