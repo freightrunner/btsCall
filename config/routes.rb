@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get 'myClients'
     end
   end
+  
+  resources :users, only: [:index]
 
   resources :client_imports
 
