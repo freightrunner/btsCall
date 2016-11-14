@@ -2,6 +2,7 @@ class ClientsController < ApplicationController
   before_action :set_client, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:index, :search, :new, :create]
   before_action :set_client_user, only: [:show, :edit]
+  before_action :check_admin, only: [:new, :create, :edit, :update, :destroy, :import]
   # GET /clients
   # GET /clients.json
   def index
@@ -108,6 +109,11 @@ class ClientsController < ApplicationController
   end
 
   private
+  
+    def check_admin
+      @checkAcct = current_user
+      @checkAcct.admin? == true
+    end
 
     #def current_username
      # @currentUsername = current_user.username
