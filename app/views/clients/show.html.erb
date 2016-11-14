@@ -39,25 +39,20 @@
             
           </div>
           <div class="panel-footer">
-          
-              <strong>Account Status:</strong>
-              <%= @client.status %>
-          
-          
-            <% if current_user.try(:admin?) %>
+            <strong>Account Status:</strong>
+             <%= @client.status %>
+             <% if current_user.try(:admin?) %>
               <%= link_to("Edit", edit_client_path(@client), class: "btn btn-xs btn-primary") %>
-              <%= link_to("Delete", client_path(@client), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
-            <% end %>
-          
+               <%= link_to("Delete", client_path(@client), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
+             <% end %>
           </div>
       </div>
     </div>
   </div>
 </div>
+
 <div class="container center">
-  
     <li class='btn btn-success btn-md'><%= link_to("Add Note", new_note_path(:client_id => @client.id)) %></li>
-  
 </div>
 
 
