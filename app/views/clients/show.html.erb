@@ -27,12 +27,17 @@
               <strong>Last Updated:</strong>
               <%= @client.updated_at %>
             </div>
-            <% if @client.notes.any? %>
-              <div class="client-address">
-                <strong>Last call:</strong>
-                 <%= @client.notes.last.created_at %>
-              </div>
+            
+            <% if current_user.try(:beta?) %>
+              <h3>Notes for account:</h3>
+              <% if @client.notes.any? %>
+                <div class="client-address">
+                  <strong>Last call:</strong>
+                   <%= @client.notes.last.created_at %>
+                </div>
+              <% end %>
             <% end %>
+            
           </div>
           <div class="panel-footer">
           <div class="client-status">
