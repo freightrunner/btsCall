@@ -3,3 +3,18 @@
     <li><%= user.email %></li>
   <% end %>
 </ul>
+
+<% @users.each do |user| %>
+  <div class="container">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><%= user.username %></div>
+      <div class="panel-body">
+        <ul>
+          <li>Email: <%= user.email %></li>
+          <li>Last Signed In: <%= user.last_sign_in_at.strftime('%H:%M:%S %B, %d, %Y') %></li>
+          <li>User ID: <%= user.id %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

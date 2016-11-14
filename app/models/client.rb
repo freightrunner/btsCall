@@ -8,6 +8,8 @@ class Client < ActiveRecord::Base
                       presence: true
   validates :status, inclusion: { :in => STATUSES,
                               message: "%{value} is not a valid type, please select either dnc or lead"}
+  validates :category, inclusion: { :in => TOPICS,
+                              message: "%{value} is not a valid Topic, please select from the list"}
 
 
 

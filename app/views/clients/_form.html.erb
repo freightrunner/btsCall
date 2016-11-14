@@ -27,7 +27,7 @@
   </div>
   <div class="form-group">
     <%= f.label :category %><br>
-    <%= f.collection_select :status, Client::TOPICS, :to_s, :to_s %>
+    <%= f.collection_select :category, Client::TOPICS, :to_s, :to_s %>
   </div>
   <div class="form-group">
     <%= f.label :name %><br>
