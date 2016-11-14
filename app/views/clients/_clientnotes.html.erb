@@ -2,11 +2,13 @@
 <h2 align="center">Notes for <strong><%= @client.name %></strong> </h2>
 <div class="container-fluid">
   <% @notes.reverse_each do |t| %>
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <div class="well well-xs">
-          <div class="client-name">
-            <%= link_to(t.comment, note_path(t)) %>
+     <div class="col-xs-8 col-xs-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <strong>Note Created: </strong> <%= t.created_at.strftime('%H:%M:%S %B, %d, %Y') %>
+          </div>
+          <div class="panel-body">
+            <%= t.comment %>
             <% if t.user_id? %>
               <div class="client-user">
                 <%= User.find(t.user_id).username %>
@@ -14,13 +16,8 @@
             <% else %>
             <% end %>
           </div>
-          <div class="client-address">
-            <%= t.created_at %>
-          </div>
-          <div class="client-status">
-            <%= t.updated_at %>
-          </div>
-          <div class="client-actions">
+          
+          <div class="panel-footer">
             <% if current_user.try(:admin?) %>
               <%= link_to("Edit", edit_note_path(t), class: "btn btn-xs btn-primary") %>
               <%= link_to("Delete", note_path(t), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
@@ -28,6 +25,6 @@
           </div>
         </div>
       </div>
-  </div>
+  
   <% end %>
 </div>
