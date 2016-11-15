@@ -11,16 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161110145241) do
+ActiveRecord::Schema.define(version: 20161115145045) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "status"
     t.integer  "user_id"
     t.string   "category"
+    t.string   "main_phone"
+    t.string   "email_domain"
+    t.decimal  "revenue"
   end
 
   add_index "clients", ["address"], name: "index_clients_on_address", unique: true
