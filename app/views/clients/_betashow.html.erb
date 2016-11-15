@@ -37,8 +37,8 @@
                 </div>
                 <div class="panel-footer">
                     <% if current_user.try(:admin?) or current_user.try(:beta?) %>
-                      <%= link_to("Edit", edit_client_path(t), class: "btn btn-xs btn-primary") %>
-                      <%= link_to("Delete", client_path(t), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
+                      <%= link_to("Edit", edit_client_path(@client), class: "btn btn-xs btn-primary") %>
+                      <%= link_to("Delete", client_path(@client), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
                     <% end %>
                 </div>
             </div>
