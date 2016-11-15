@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <div class="client-name">
+                        <%= @client.name %>
+                    </div>
+                        <strong>User:</strong>
+                        <% if @client.user_id? %>
+                          <%= @clientOwner.username %>
+                        <% else %>
+                          <strong>No user associated</strong>
+                        <% end %>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <ul>
+                                <li><strong>Topic: </strong><%= @client.category %></li>
+                                <li><strong>Website: </strong><%= @client.address %></li>
+                                <li><strong>Created: </strong><%= @client.created_at.strftime('%H:%M:%S %B, %d, %Y') %></li>
+                                <li><strong>Updated: </strong><%= @client.updated_at.strftime('%H:%M:%S %B, %d, %Y') %></li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-6">
+                            <ul>
+                                <li><strong>Revenue: $</strong><%= @client.revenue %>M</li>
+                                <li><strong>Main #: </strong><%= @client.main_phone %></li>
+                                <li><strong>Email Domain: </strong><%= @client.email_domain %></li>
+                                <% if @client.notes.any? %>
+                                    <li><strong>Last call: </strong><%= @client.notes.last.created_at.strftime('%H:%M:%S %B, %d, %Y') %></li>
+                                <% end %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

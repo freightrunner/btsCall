@@ -1,56 +1,59 @@
 <p id="notice"><%= notice %></p>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-8 col-xs-offset-2">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-          <div class="client-name">
-            <%= @client.name %>
-             <div class="client-user">
-              <strong>User:</strong>
-              <% if @client.user_id? %>
-                <%= @clientOwner.username %>
-              <% else %>
-                <strong>No user associated</strong>
+<% if current_user.try(:beta?) %>
+  <%= render 'betashow' %>
+<% else %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+            <div class="client-name">
+              <%= @client.name %>
+               <div class="client-user">
+                <strong>User:</strong>
+                <% if @client.user_id? %>
+                  <%= @clientOwner.username %>
+                <% else %>
+                  <strong>No user associated</strong>
+                <% end %>
+              </div>
+            </div>
+            </div>
+            <div class="panel-body">
+              <div class="client-address">
+                <strong>Web Address:</strong>
+                 <%= @client.address %>
+              </div>
+              <div class="client-address">
+                <strong>Uploaded:</strong>
+                <%= @client.created_at %>
+                <strong>Last Updated:</strong>
+                <%= @client.updated_at %>
+              </div>
+              
+              <% if current_user.try(:beta?) %>
+                <% if @client.notes.any? %>
+                  <div class="client-address">
+                    <strong>Last call:</strong>
+                     <%= @client.notes.last.created_at %>
+                  </div>
+                <% end %>
               <% end %>
+              
             </div>
-          </div>
-          </div>
-          <div class="panel-body">
-            <div class="client-address">
-              <strong>Web Address:</strong>
-               <%= @client.address %>
+            <div class="panel-footer">
+              <strong>Account Status:</strong>
+               <%= @client.status %>
+               <% if current_user.try(:admin?) %>
+                <%= link_to("Edit", edit_client_path(@client), class: "btn btn-xs btn-primary") %>
+                 <%= link_to("Delete", client_path(@client), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
+               <% end %>
             </div>
-            <div class="client-address">
-              <strong>Uploaded:</strong>
-              <%= @client.created_at %>
-              <strong>Last Updated:</strong>
-              <%= @client.updated_at %>
-            </div>
-            
-            <% if current_user.try(:beta?) %>
-              <% if @client.notes.any? %>
-                <div class="client-address">
-                  <strong>Last call:</strong>
-                   <%= @client.notes.last.created_at %>
-                </div>
-              <% end %>
-            <% end %>
-            
-          </div>
-          <div class="panel-footer">
-            <strong>Account Status:</strong>
-             <%= @client.status %>
-             <% if current_user.try(:admin?) %>
-              <%= link_to("Edit", edit_client_path(@client), class: "btn btn-xs btn-primary") %>
-               <%= link_to("Delete", client_path(@client), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
-             <% end %>
-          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
+<% end %>
 <div class="container center">
     <li class='btn btn-success btn-md'><%= link_to("Add Note", new_note_path(:client_id => @client.id)) %></li>
 </div>
