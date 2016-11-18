@@ -12,7 +12,7 @@ Rails.application.configure do
     :authentication  => :plain,
     :user_name       => ENV['app54945447@heroku.com'],
     :password        => ENV['3yojjjmp3323'],
-    :domain          => ENV['dncptv.herokuapp.com']
+    :domain          => ENV['sendgrid.com']
   }
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
