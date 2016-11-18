@@ -5,14 +5,14 @@ Rails.application.configure do
   config.cache_classes = true
   
   # This is for the devise gem
-  config.action_mailer.default_url_options = { :host => 'btsdnc.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'dncptv.herokuapp.com' }
   ActionMailer::Base.smtp_settings = {
     :address         => "smtp.sendgrid.net",
     :port            => "25",
     :authentication  => :plain,
     :user_name       => ENV['app54945447@heroku.com'],
     :password        => ENV['3yojjjmp3323'],
-    :domain          => ENV['btsdnc.herokuapp.com']
+    :domain          => ENV['dncptv.herokuapp.com']
   }
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
