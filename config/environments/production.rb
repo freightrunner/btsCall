@@ -10,9 +10,9 @@ Rails.application.configure do
     :address         => "smtp.sendgrid.net",
     :port            => "25",
     :authentication  => :plain,
-    :user_name       => ENV['app54945447@heroku.com'],
-    :password        => ENV['3yojjjmp3323'],
-    :domain          => ENV['sendgrid.com']
+    :user_name       => ENV['SENDGRID_USERNAME'],
+    :password        => ENV['SENDGRID_PASSWORD'],
+    :domain          => ENV['SENDGRID_DOMAIN']
   }
   # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
