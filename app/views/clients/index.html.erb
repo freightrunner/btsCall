@@ -1,7 +1,7 @@
 <div class="center search">
   <p id="notice"><%= notice %></p>
   <% if current_user.email == "james@frontpageprofile.com" %>
-    <h2>Hello James, we always knew you'd come crawling back</h2>
+    <h2>Hello JJ, we always knew you'd come crawling back</h2>
   <% end %>
   <% if current_user.try(:beta?) %>
     <button type="button" class='btn btn-standard btn-lg'><%= link_to("My Leads", clients_path(user_id: current_user.id))  %></button>
