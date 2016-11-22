@@ -1,0 +1,8 @@
+<h6 align="center">Contacts for <strong><%= @client.name %></strong></h6>
+<% @contacts.each do |contact| %>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <strong><%= contact.first_name %> <%= contact.last_name %></strong>
+        </div>
+    </div>
+<% end %>

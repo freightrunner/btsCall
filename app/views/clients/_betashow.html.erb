@@ -43,5 +43,12 @@
                 </div>
             </div>
         </div>
+        <div class="col-xs-6">
+            <% if @client.contacts.any? %>
+                <%= render 'clientcontacts' %>
+            <% else %>
+                <li class='btn btn-success btn-md'><%= link_to("Add Contact", new_contact_path(:client_id => @client.id)) %></li>
+            <% end %>
+        </div>
     </div>
 </div>

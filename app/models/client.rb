@@ -2,6 +2,7 @@ class Client < ActiveRecord::Base
   #attr_accessible :name, :address
   belongs_to :user
   has_many :notes
+  has_many :contacts
   STATUSES = ['dnc', 'lead', 'open', 'client']
   TOPICS = ['Agriculture/Environment', 'Architecture', 'Arts & Culture', 'Business', 'Culinary', 'Education', 'Health/Medical', 'Outdoor', 'Travel']
   validates :address, uniqueness: { case_sensitive: false},
