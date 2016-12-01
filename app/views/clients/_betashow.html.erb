@@ -1,6 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-6">
+            <h3 class="center">Company Information</h3>
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <div class="client-name">
@@ -19,7 +20,7 @@
                             <ul>
                                 <li><strong>Topic: </strong><%= @client.category %></li>
                                 <li><strong>Website: </strong><%= @client.address %></li>
-                                <li><strong>Created: </strong><%= @client.created_at.strftime('%H:%M:%S %B, %d, %Y') %></li>
+                                <br><hr>
                                 <li><strong>Updated: </strong><%= @client.updated_at.strftime('%H:%M:%S %B, %d, %Y') %></li>
                             </ul>
                         </div>
@@ -28,6 +29,7 @@
                                 <li><strong>Revenue: $</strong><%= @client.revenue %>M</li>
                                 <li><strong>Main #: </strong><%= @client.main_phone %></li>
                                 <li><strong>Email Domain: </strong><%= @client.email_domain %></li>
+                                <hr>
                                 <% if @client.notes.any? %>
                                     <li><strong>Last call: </strong><%= @client.notes.last.created_at.strftime('%H:%M:%S %B, %d, %Y') %></li>
                                 <% end %>
@@ -42,12 +44,20 @@
                     <% end %>
                 </div>
             </div>
+            <div class="notes">
+                <div class="center">
+                    <li class='btn btn-success btn-md'><%= link_to("Add Note", new_note_path(:client_id => @client.id)) %></li>
+                </div>
+                <% if @client.notes.any? %>
+                    <%= render 'clientnotes' %>
+                <% end %>
+            </div>
         </div>
         <div class="col-xs-6">
             <% if @client.contacts.any? %>
                 <%= render 'clientcontacts' %>
             <% else %>
-                <li class='btn btn-success btn-md'><%= link_to("Add Contact", new_contact_path(:client_id => @client.id)) %></li>
+                <div class="center"><li class='btn btn-success btn-md'><%= link_to("Add Contact", new_contact_path(:client_id => @client.id)) %></li></div>
             <% end %>
         </div>
     </div>

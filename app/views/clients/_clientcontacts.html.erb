@@ -1,4 +1,5 @@
-<h6 align="center">Contacts for <strong><%= @client.name %></strong></h6>
+<h3 align="center">Contacts</strong></h6>
+<div class="center"><li class='btn btn-success btn-md'><%= link_to("Add Contact", new_contact_path(:client_id => @client.id)) %></li></div>
 <% @contacts.each do |contact| %>
     <div class="panel panel-primary">
         <div class="panel-heading">

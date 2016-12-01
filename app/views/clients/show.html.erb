@@ -57,13 +57,6 @@
 
 
 
-<% if current_user.try(:beta?) %>
-  <div class="container center">
-    <li class='btn btn-success btn-md'><%= link_to("Add Note", new_note_path(:client_id => @client.id)) %></li>
-  </div>
-  <% if @client.notes.any? %>
-    <%= render 'clientnotes' %>
-  <% end %>
-<% end %>
+
 
 
