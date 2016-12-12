@@ -40,7 +40,7 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.hidden_field :client_id, :value => params[:client_id] %>
+    <%= f.hidden_field :client_id, :value => params[:client_id] OR @client.id %>
   </div>
   <div class="actions">
     <%= f.submit %>

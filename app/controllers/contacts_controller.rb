@@ -21,6 +21,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1/edit
   def edit
+    @client = @contact.client_id
   end
 
   # POST /contacts
