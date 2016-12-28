@@ -18,7 +18,7 @@ app.Clients.prototype = {
     
     _render: function(ul, item) {
         var markup = [
-            '<span class="name"> + item.name + </span>'
+            '<span class="name"> + item.name + </span>',
             '<span class="address"> + item.address + </span>'
         ];
         return $('<li>')
