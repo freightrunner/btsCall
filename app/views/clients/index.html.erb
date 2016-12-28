@@ -14,9 +14,11 @@
     </div>
   </section>
   
-  <%= content_for :script do %>
-    new app.Clients;
-  <% end %>
+  <script>
+    $(function() {
+      new app.Clients;
+    });
+  </script>
 </div>
 
 <div class="row">
