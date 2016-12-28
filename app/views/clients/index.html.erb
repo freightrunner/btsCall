@@ -7,6 +7,18 @@
     <button type="button" class='btn btn-standard btn-lg'><%= link_to("My Leads", clients_path(user_id: current_user.id))  %></button>
   <% end %>
 <div class="row">
+  <section class="app-content">
+    <div class="clients-search">
+      <input type="text" id="clients-search-txt" autofocus>
+      <div class="results" id="clients-search-results"></div>
+    </div>
+  </section>
+  
+  <%= content_for :script do %>
+    new.app.Clients;
+  <% end %>
+</div>
+<div class="row">
   <div class="col-xs-3">
     <%= render 'topicdropdown' %>
   </div>

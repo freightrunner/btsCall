@@ -8,7 +8,7 @@ class Client < ActiveRecord::Base
   validates :address, uniqueness: { case_sensitive: false},
                       presence: true
   validates :status, inclusion: { :in => STATUSES,
-                              message: "%{value} is not a valid type, please select either dnc or lead"}
+                              message: "%{value} is not a valid type, please select either dnc, open or lead"}
   validates :category, inclusion: { :in => TOPICS,
                               message: "%{value} is not a valid Topic, please select from the list"}
 
@@ -16,8 +16,9 @@ class Client < ActiveRecord::Base
 
 
   def self.search(w)
-    where("name ILIKE ?", "%#{w}%")
-    where("address ILIKE ?", "%#{w}%")
+    where('LOWER(name) ILIKE :w OR LOWER(address) ILIKE :w', w: "%#{w.downcase}%")
+    #where("name ILIKE ?", "%#{w}%")
+    #where("address ILIKE ?", "%#{w}%")
   end
 
   def self.import(file)
