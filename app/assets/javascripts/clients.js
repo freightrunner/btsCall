@@ -1,5 +1,3 @@
-var app = window.app = {};
-
 app.Clients = function() {
     this._input = $('#clients-search-txt');
     this._initAutocomplete();

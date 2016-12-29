@@ -16,5 +16,6 @@
 //= require autocomplete-rails
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require app
 //= require clients
 //= require_tree .
