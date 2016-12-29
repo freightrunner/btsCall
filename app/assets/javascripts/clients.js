@@ -11,7 +11,7 @@ app.Clients.prototype = {
                 appendTo: '#clients-search-results',
                 select: $.proxy(this._select, this)
             })
-            .autocomplete('instace')._renderItem = $.proxy(this._render, this);
+            .autocomplete('instance')._renderItem = $.proxy(this._render, this);
     },
     
     _render: function(ul, item) {
