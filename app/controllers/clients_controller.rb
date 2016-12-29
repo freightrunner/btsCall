@@ -6,6 +6,10 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
+    respond_to do |format|
+      format.html
+      format.json { @clients = Client.search(params[:w]) }
+    end
     @clientss = Client.where(status: 'dnc').all.order('LOWER(name)')
     #if params[:q]
     #  @clients = Client.where("name ILIKE ?", "%#{params[:q]}%").all.order('LOWER(name)')
@@ -17,10 +21,6 @@ class ClientsController < ApplicationController
     #elsif params[:category]
     #  @clients = Client.where("category LIKE ?", "%#{params[:category]}%").all.order('LOWER(name)')
     #end
-    respond_to do |format|
-      format.html
-      format.json { @clients = Client.search(params[:w]) }
-    end
   end
 
   def myClients
