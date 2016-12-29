@@ -16,7 +16,7 @@ class Client < ActiveRecord::Base
 
 
   def self.search(w)
-    where('LOWER(name) ILIKE :w OR LOWER(address) ILIKE :w', w: "%#{w.downcase}%")
+    where('name ILIKE :w OR address ILIKE :w', w: "%#{w.downcase}%")
     #where("name ILIKE ?", "%#{w}%")
     #where("address ILIKE ?", "%#{w}%")
   end
