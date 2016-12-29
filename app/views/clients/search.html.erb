@@ -5,7 +5,11 @@
       <div class="results" id="clients-search-results"></div>
     </div>
   </section>
- 
+ <script>
+  $(function() {
+    new app.Books;
+  });
+</script>
   
   <%= content_for :script do %>
     new app.Clients;
