@@ -1,51 +1,23 @@
-
 <div class="row">
-  <% if params[:q] %>
-  <div class="col-md-6">
-    <div class="center search">
-      <p id="notice"><%= notice %></p>
-      <h1>Check the Do Not Call List</h1>
-      <div class="container-fluid">
-        <h4>Type in the website address without the www.</h4>
-        <%= form_tag(search_clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
-          <div class="form-group">
-            <%= text_field_tag :q, params[:q], placeholder: "Type in the website address without the www.", class: "form-control", autofocus: true %>
-          </div>
-          <%= submit_tag "Search", class: 'btn btn-primary btn-lg' %>
-        <% end %>
-      </div>
+  <section class="app-content">
+    <div class="clients-search">
+      <input type="text" id="clients-search-txt" autofocus>
+      <div class="results" id="clients-search-results"></div>
     </div>
-  </div>
-  <% else %>
-  <div class="col-md-12">
-    <div class="center search">
-      <p id="notice"><%= notice %></p>
-      <h1>Check the Do Not Call List</h1>
-      <div class="container-fluid">
-        <h4>Type in the website address without the www.</h4>
-        <%= form_tag(search_clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
-          <div class="form-group">
-            <%= text_field_tag :q, params[:q], placeholder: "Type in the website address without the www.", class: "form-control", autofocus: true %>
-          </div>
-          <%= submit_tag "Search", class: 'btn btn-primary btn-lg' %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-
-  <div class="col-md-6">
-    <% if @response.blank? %>
-    <h2></h2>
-    <% elsif @response == 8 %>
-    <h1>Search Results:</h1>
-    <h2>Go ahead and give them a ring</h2>
-    <% else %>
-    <h1>Search Results:</h1>
-    <h2><%= link_to("#{@results.name}", client_path(@results)) %> is marked as <%= @results.status %></h2>
-    <% end %>
-  </div>
+  </section>
+  <br>
+  <br>
+  <br>
+  
+  <script>
+    $(function() {
+      new app.Clients;
+    });
+  </script>
+  <br>
+  <br>
+  <br>
 </div>
-
-
-
+<br>
+<br>
+<br>

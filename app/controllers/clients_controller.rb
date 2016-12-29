@@ -17,10 +17,6 @@ class ClientsController < ApplicationController
     #elsif params[:category]
     #  @clients = Client.where("category LIKE ?", "%#{params[:category]}%").all.order('LOWER(name)')
     #end
-    respond_to do |format|
-      format.html
-      format.json { @clients = Client.search(params[:w]) }
-    end
   end
 
   def myClients
@@ -41,14 +37,9 @@ class ClientsController < ApplicationController
   end
 
   def search
-    @clients = Client.all
-    if params[:q]
-      @results = Client.search(params[:q]).first
-      if @results.blank?
-        @response = 8
-      else
-        @response = @results
-      end
+    respond_to do |format|
+      format.html
+      format.json { @clients = Client.search(params[:w]) }
     end
   end
 
