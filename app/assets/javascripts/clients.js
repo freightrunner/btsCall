@@ -14,7 +14,7 @@ app.Clients.prototype = {
             .autocomplete('instance')._renderItem = $.proxy(this._render, this);
     },
     
-    _renderItem: function(ul, item) {
+    _render: function(ul, item) {
         var markup = [
             '<span class="name"> + item.name + </span>',
             '<span class="address"> + item.address + </span>'
