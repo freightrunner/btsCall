@@ -1,15 +1,16 @@
 <div class="row">
   <section class="app-content">
+    <script>
+  $(function() {
+    new app.Books;
+  });
+</script>
     <div class="clients-search">
       <input type="text" id="clients-search-txt" autofocus>
       <div class="results" id="clients-search-results"></div>
     </div>
   </section>
- <script>
-  $(function() {
-    new app.Books;
-  });
-</script>
+ 
   
   <%= content_for :script do %>
     new app.Clients;
