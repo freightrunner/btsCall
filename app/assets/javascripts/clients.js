@@ -9,7 +9,7 @@ app.Clients.prototype = {
     _initAutocomplete: function() {
         this._input
             .autocomplete({
-                source: '/clients/search',
+                source: '/clients',
                 appendTo: '#clients-search-results',
                 select: $.proxy(this._select, this)
             })
