@@ -8,7 +8,7 @@ class ClientsController < ApplicationController
   def index
     @clientss = Client.where(status: 'dnc').all.order('LOWER(name)')
     if params[:q]
-      @clients = Client.where("name ILIKE ?", "%#{params[:q]}%").all.order('LOWER(name)')
+      @clients = Client.where("name ILIKE ? OR address ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%").all.order('LOWER(name)')
     elsif params[:user_id]
       @clients = Client.where(user_id: current_user.id).all
       @clients = @clients.where(status: 'lead').all.order('LOWER(name)')
