@@ -12,7 +12,7 @@
     this._initAutocomplete();
 };
 
-app.Clients.prototype = {
+ 
     _initAutocomplete: function() {
         this._input
             .autocomplete({
@@ -48,3 +48,35 @@ app.Clients.prototype = {
   <%= content_for :script do %>
     new app.Clients;
   <% end %>
+
+<script>
+  $( function() {
+    var availableTags = [
+      "ActionScript",
+      "AppleScript",
+      "Asp",
+      "BASIC",
+      "C",
+      "C++",
+      "Clojure",
+      "COBOL",
+      "ColdFusion",
+      "Erlang",
+      "Fortran",
+      "Groovy",
+      "Haskell",
+      "Java",
+      "JavaScript",
+      "Lisp",
+      "Perl",
+      "PHP",
+      "Python",
+      "Ruby",
+      "Scala",
+      "Scheme"
+    ];
+    $( "#clients-search-txt" ).autocomplete({
+      source: '/clients/search'
+    });
+  } );
+</script>
