@@ -16,7 +16,7 @@
     _initAutocomplete: function() {
         this._input
             .autocomplete({
-                source: 'search',
+                source: '/clients/search',
                 appendTo: '#clients-search-results',
                 select: $.proxy(this._select, this)
             })
