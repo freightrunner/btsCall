@@ -37,6 +37,7 @@ class ClientsController < ApplicationController
   end
 
   def search
+    @clients = Client.all
     respond_to do |format|
       format.html
       format.json { @clients = Client.search(params[:w]) }
