@@ -19,7 +19,7 @@
 <h2 align="center">Do Not Call Listed Companies</h2>
 <div class="container-fluid">
   <% @clients.each do |t| %>
-    <% if t.nil? %>
+    <% if t.blank? %>
       <div class="row">
         <div class="col-xs-8 col-xs-offset-2">
           <h2 align="center">No record found for: <%= @term %></h2>
