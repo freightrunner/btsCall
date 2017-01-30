@@ -25,33 +25,35 @@
           <h2 align="center">No record found for: <%= @term %></h2>
         </div>
       </div>
-    <div class="row">
-      <div class="col-xs-8 col-xs-offset-2">
-        <div class="well content-holder">
-          <div class="client-name">
-            <%= link_to(t.name, client_path(t)) %>
-            <% if t.user_id? %>
-              <div class="client-user">
-                <%= User.find(t.user_id).username %>
-              </div>
-            <% else %>
-            <% end %>
-          </div>
-          <div class="client-address">
-            <%= t.address %>
-          </div>
-          <div class="client-status">
-            <%= t.category %>
-          </div>
-          <div class="client-actions">
-            <% if current_user.try(:admin?) or current_user.try(:beta?) %>
-              <%= link_to("Edit", edit_client_path(t), class: "btn btn-xs btn-primary") %>
-              <%= link_to("Delete", client_path(t), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
-            <% end %>
+    <%= else %>  
+      <div class="row">
+        <div class="col-xs-8 col-xs-offset-2">
+          <div class="well content-holder">
+            <div class="client-name">
+              <%= link_to(t.name, client_path(t)) %>
+              <% if t.user_id? %>
+                <div class="client-user">
+                  <%= User.find(t.user_id).username %>
+                </div>
+              <% else %>
+              <% end %>
+            </div>
+            <div class="client-address">
+              <%= t.address %>
+            </div>
+            <div class="client-status">
+              <%= t.category %>
+            </div>
+            <div class="client-actions">
+              <% if current_user.try(:admin?) or current_user.try(:beta?) %>
+                <%= link_to("Edit", edit_client_path(t), class: "btn btn-xs btn-primary") %>
+                <%= link_to("Delete", client_path(t), method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-xs btn-danger") %>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-  </div>
+    </div>
+    <% end %>
   <% end %>
 </div>
 
