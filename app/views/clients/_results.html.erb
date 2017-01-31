@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <% if @clients.blank? %>
+        <h2>No matches found for: <%= @term %></h2>
+    <% else %>
+        <% @clients.each do |t| %>
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <div class="panel panel-result">
+                        <div class="panel-heading">
+                            <%= link_to(t.name, client_path(t)) %> | 
+                            <%= t.status %>
+                        </div>
+                        <div class="panel-body">
+                            
+                        </div>
+                        <div class="panel-footer">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    <% end %>
+</div>
