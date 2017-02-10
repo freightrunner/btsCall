@@ -1,12 +1,12 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12">
-      <div class="panel panel-primary">
-        <div class="panel-heading"><strong>Search by Company Name or Website</strong></div>
-        <div class="panel-body"> Type part of the company name or website <strong>without the www.</strong>
-          <div class="form-inline">
+      <div class="panel panel-primary center-block">
+        <div class="panel-heading center-block"><strong class="center-search">Search by Company Name or Website</strong></div>
+        <div class="panel-body center-block"> Type part of the company name or website <strong>without the www.</strong>
+          <div class="form-inline center-block">
             <%= form_tag(clients_path, :method => "get", id: "search-form", :html => {class: "form"}) do %>
-            <div class="form-group">
+            <div class="form-group center-block">
               <%= text_field_tag :q, params[:q], placeholder: "Company Name or Website", class: "form-control" %>
             </div>
             <%= submit_tag "Search", class: 'btn btn-primary' %>
