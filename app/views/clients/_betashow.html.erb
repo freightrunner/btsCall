@@ -56,6 +56,7 @@
         <div class="col-xs-6">
             <% if @client.contacts.any? %>
                 <%= render 'clientcontacts' %>
+                <li class='btn btn-success btn-md'><%= link_to("Add Contact", new_contact_path(:client_id => @client.id)) %></li>
             <% else %>
                 <div class="center"><li class='btn btn-success btn-md'><%= link_to("Add Contact", new_contact_path(:client_id => @client.id)) %></li></div>
             <% end %>
