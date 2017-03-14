@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="panel-footer">
+                <div class="panel-footer clearfix">
                     <div class="client-actions">
                       <% if current_user.try(:admin?) or current_user.try(:beta?) %>
                         <%= link_to("Edit", edit_client_path(t), class: "btn btn-xs btn-primary") %>
