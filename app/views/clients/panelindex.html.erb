@@ -1,20 +1,3 @@
-<div class="center search">
-  <p id="notice"><%= notice %></p>
-  <% if current_user.email == "james@frontpageprofile.com" %>
-    <h2>Hello JJ, we always knew you'd come crawling back</h2>
-  <% end %>
-  
-
-
-<div class="row">
-  <div class="col-xs-12 col-md-3">
-    <%= render 'topicdropdown' %>
-  </div>
-  <div class="col-xs-12 col-md-9">
-    <%= render 'searches' %>
-  </div>
-</div> 
-<h2 align="center">Do Not Call Listed Companies</h2>
 <div class-"container-fluid">
     <% @clients.each do |t| %>
     <div class="row">
@@ -54,6 +37,3 @@
     </div>
     <% end %>
 </div>
-
-
-
