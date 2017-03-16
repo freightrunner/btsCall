@@ -40,7 +40,27 @@ class ClientImport
     (2..spreadsheet.last_row).map do |i|
       row = Hash[[header, spreadsheet.row(i)].transpose]
       client = Client.find_by_address(row["address"]) || Client.new
-      client.attributes = row.to_hash #.slice(Client.client_import_params)
+      #client.attributes = row.to_hash #.slice(Client.client_import_params)
+      client.user_id = row["user_id"]
+      client.status = row["status"]
+      client.name = row["name"]
+      client.address = row["address"]
+      client.category = row["category"]
+      client.main_phone = row["company_phone"]
+      if client.new_record?
+        client.save!
+      end
+      contact_one = Contact.new
+      contact_one.title = row["contact_title"]
+      contact_one.first_name = row["contact_first_name"]
+      contact_one.last_name = row["contact_last_name"]
+      contact_one.phone_number = row["contact_phone_number"]
+      contact_one.phone_ext = row["contact_ext"]
+      contact_one.cell_number = row["contact_cell"]
+      contact_one.email = row["contact_email"]
+      contact_one.client_id = client.id
+      contact_one.save! unless contact_one.nil?
+
       client
     end
   end
