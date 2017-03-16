@@ -41,28 +41,26 @@ class ClientImport
       row = Hash[[header, spreadsheet.row(i)].transpose]
       client = Client.find_by_address(row["address"]) || Client.new
       #client.attributes = row.to_hash #.slice(Client.client_import_params)
-      clientObj = client.id
       client.user_id = row["user_id"]
       client.status = row["status"]
       client.name = row["name"]
       client.address = row["address"]
       client.category = row["category"]
       client.main_phone = row["company_phone"]
-      contactTitle = row["contact_title"]
-      contact = Contact.where(:title=>contactTitle).first
-      contact_id = contact.id unless contact.nil?
-      if contact.nil?
-        contactObj = Contact.new
-        contactObj.title = contactTitle
-        contactObj.first_name = row["contact_first_name"]
-        contactObj.last_name = row["contact_last_name"]
-        contactObj.phone_number = row["contact_phone_number"]
-        contactObj.phone_ext = row["contact_ext"]
-        contactObj.cell_number = row["contact_cell"]
-        contactObj.email = row["contact_email"]
-        contactObj.client_id = contactObj.id
-        contactObj.save!
+      if client.new_record?
+        client.save!
       end
+      contact_one = Contact.new
+      contact_one.title = row["contact_title"]
+      contact_one.first_name = row["contact_first_name"]
+      contact_one.last_name = row["contact_last_name"]
+      contact_one.phone_number = row["contact_phone_number"]
+      contact_one.phone_ext = row["contact_ext"]
+      contact_one.cell_number = row["contact_cell"]
+      contact_one.email = row["contact_email"]
+      contact_one.client_id = client.id
+      contact_one.save! unless contact_one.nil?
+
       client
     end
   end
