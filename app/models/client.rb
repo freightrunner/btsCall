@@ -17,8 +17,6 @@ class Client < ActiveRecord::Base
 
   def self.search(w)
     where("name ILIKE ? OR address ILIKE ?", "%#{w}%", "%#{w}%")
-    #where("name ILIKE ?", "%#{w}%")
-    #where("address ILIKE ?", "%#{w}%")
   end
 
   def self.import(file)
