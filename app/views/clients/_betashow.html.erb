@@ -27,7 +27,7 @@
                         <div class="col-xs-6">
                             <ul>
                                 <li><strong>Revenue: $</strong><%= @client.revenue %>M</li>
-                                <li><strong>Main #: </strong><%= @client.main_phone %></li>
+                                <li><strong>Main #: </strong><%= number_to_phone(@client.main_phone) %></li>
                                 <li><strong>Email Domain: </strong><%= @client.email_domain %></li>
                                 <hr>
                                 <% if @client.notes.any? %>
