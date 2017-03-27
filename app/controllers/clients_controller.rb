@@ -6,15 +6,15 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
-    @clients = Client.all.order('LOWER(name)')
+    @clients = Client.all.order('LOWER(name)').includes(:user)
     if params[:q]
       @term = "#{params[:q]}"
-      @clients = Client.where("name ILIKE ? OR address ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%").all.order('LOWER(name)')
+      @clients = @clients.where("name ILIKE ? OR address ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
     elsif params[:user_id]
-      @clients = Client.where(user_id: current_user.id).all
-      @clients = @clients.where(status: 'lead').all.order('LOWER(name)')
+      @clients = @clients.where(user_id: current_user.id)
+      @clients = @clients.where(status: 'lead')
     elsif params[:category]
-      @clients = Client.where("category LIKE ?", "%#{params[:category]}%").all.order('LOWER(name)')
+      @clients = @clients.where("category LIKE ?", "%#{params[:category]}%")
     end
   end
 

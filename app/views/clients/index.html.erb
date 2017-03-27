@@ -35,7 +35,7 @@
                             <ul class="list-group">
                                 <li class="center-block"><strong>Status: <%= t.status %></strong></li>
                                 <% if t.user_id? %>
-                                    <li class="center-block"><strong>User: <%= User.find(t.user_id).username %></strong></li>
+                                    <li class="center-block"><strong>User: <%= t.user.username %></strong></li>
                                 <% end %>
                             </ul>
                         </div>
