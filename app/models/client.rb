@@ -19,7 +19,8 @@ class Client < ActiveRecord::Base
   end
   
   def self.my_leads(userid)
-    where("user_id LIKE ? AND status LIKE ?", userid.to_i, "lead")
+    where(user_id: userid)
+    where("status LIKE ?", "lead")  
   end
 
   def self.search(term)
