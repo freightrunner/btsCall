@@ -1,5 +1,5 @@
 class Note < ActiveRecord::Base
-  belongs_to :client
+  belongs_to :client, inverse_of: :notes
   #scope :by_client => client_id { where(:client_id => client_id) }
 
   def self.search(q)

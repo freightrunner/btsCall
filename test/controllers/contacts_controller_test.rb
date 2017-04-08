@@ -2,7 +2,9 @@ require 'test_helper'
 
 class ContactsControllerTest < ActionController::TestCase
   setup do
+    client = Client.create(name: "test client", address: "test.com")
     @contact = contacts(:one)
+    @user = users(:one)
   end
 
   test "should get index" do

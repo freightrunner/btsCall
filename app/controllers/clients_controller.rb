@@ -9,12 +9,11 @@ class ClientsController < ApplicationController
     @clients = Client.all.order('LOWER(name)').includes(:user)
     if params[:q]
       @term = "#{params[:q]}"
-      @clients = @clients.where("name ILIKE ? OR address ILIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
+      @clients = @clients.search(params[:q])
     elsif params[:user_id]
-      @clients = @clients.where(user_id: current_user.id)
-      @clients = @clients.where(status: 'lead')
+      @clients = @clients.my_leads(params[:user_id])
     elsif params[:category]
-      @clients = @clients.where("category LIKE ?", "%#{params[:category]}%")
+      @clients = @clients.category_filter(params[:category])
     end
   end
 

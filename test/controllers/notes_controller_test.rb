@@ -2,7 +2,7 @@ require 'test_helper'
 
 class NotesControllerTest < ActionController::TestCase
   setup do
-    @note = notes(:one)
+    @note = notes(:first)
   end
 
   test "should get index" do
@@ -12,7 +12,7 @@ class NotesControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get new_note_path
     assert_response :success
   end
 

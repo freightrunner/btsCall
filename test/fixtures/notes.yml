@@ -1,7 +1,8 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  client_id: 
+first:
+  client: client_a
+  comment: "a comment"
 
 two:
   client_id: 

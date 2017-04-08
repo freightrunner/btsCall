@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  first_name: MyString
-  last_name: MyString
-  phone_number: MyString
-  phone_ext: MyString
-  email: MyString
-  title: MyString
-  client_id: 
+  first_name: brian
+  last_name: arpaio
+  phone_number: 1234567890
+  phone_ext: 123
+  email: brian@test.com
+  title: ceo
+  client: client_a
 
 two:
-  first_name: MyString
-  last_name: MyString
-  phone_number: MyString
-  phone_ext: MyString
-  email: MyString
-  title: MyString
+  first_name: dave
+  last_name: ramsay
+  phone_number: 2345678901
+  phone_ext: 234
+  email: dave@test.com
+  title: ceo
   client_id: 

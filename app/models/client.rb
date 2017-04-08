@@ -1,7 +1,7 @@
 class Client < ActiveRecord::Base
   #attr_accessible :name, :address
   belongs_to :user
-  has_many :notes
+  has_many :notes, inverse_of: :client
   has_many :contacts, inverse_of: :client
   
   STATUSES = ['dnc', 'lead', 'open', 'client']
@@ -14,10 +14,16 @@ class Client < ActiveRecord::Base
                               message: "%{value} is not a valid Topic, please select from the list"}
 
 
+  def self.category_filter(category)
+    where("category LIKE ?", "%#{category}%")
+  end
+  
+  def self.my_leads(userid)
+    where("user_id LIKE ? AND status LIKE ?", userid, "lead")
+  end
 
-
-  def self.search(w)
-    where("name ILIKE ? OR address ILIKE ?", "%#{w}%", "%#{w}%")
+  def self.search(term)
+    where("name ILIKE ? OR address ILIKE ?", "%#{term}%", "%#{term}%")
   end
 
   def self.import(file)
