@@ -19,7 +19,7 @@ class Client < ActiveRecord::Base
   end
   
   def self.my_leads(userid)
-    where(user_id: userid, status: 'lead')
+    where(user_id: userid).where(status: 'lead')
   end
 
   def self.search(term)
